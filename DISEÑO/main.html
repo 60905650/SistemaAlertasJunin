@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Alertas - SGDA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logo-container {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .nav-bar {
+            display: flex;
+            background-color: #e0e0e0;
+            padding: 10px 20px;
+        }
+        
+        .nav-item {
+            position: relative;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: #d0d0d0;
+        }
+        
+        .nav-item::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
+        .nav-item:first-child {
+            padding-left: 0;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://placehold.co/1920x300/4a90e2/ffffff?text=Cielo+Azul+y+Nubes') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4a90e2;
+            display: inline-block;
+        }
+        
+        .forecast-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .forecast-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .forecast-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .date {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .weather-icon {
+            font-size: 60px;
+            margin: 15px 0;
+            color: #4a90e2;
+        }
+        
+        .temperature {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #333;
+        }
+        
+        .description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .forecast-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .forecast-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="logo-container">
+                <img src="C:\Users\SEBASTIAN\Desktop\DISEÑO\imagenes\f828b183-30e9-4291-bd51-0e3b4aa2ebc7.jpg" alt="SGDA" class="logo">
+            </div>
+            <div class="logo-container">
+                
+            </div>
+        </div>
+
+            <section class="hero">
+                <h1>Tiempo / Pronóstico del Tiempo</h1>
+            </section>
+        
+        <nav class="nav-bar">
+            <div class="nav-item" onclick="location.href='main.html'">🏠</div>
+            <div class="nav-item" onclick="location.href='pronosticos.html'" style="background-color: #d0d0d0; font-weight: bold;">Junín</div>
+            <div class="nav-item" onclick="location.href='avisos.html'" style="background-color: #d0d0d0; font-weight: bold;">Avisos</div>
+            <div class="nav-item">Tiempo</div>
+            <div class="nav-item" onclick="location.href='vigilancia.html'" style="background-color: #d0d0d0; font-weight: bold;">Clima</div>
+            <div class="nav-item" onclick="location.href='main.html'">Hidrología</div>
+            <div class="nav-item" onclick="location.href='main.html'">Agrometeorología</div>
+            <div class="nav-item" onclick="location.href='main.html'">Datos</div>
+            <div class="nav-item" onclick="location.href='main.html'">Servicios al Ciudadano</div>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h2 class="section-title">Pronóstico del tiempo para HUANCAYO (Junín)</h2>
+        
+        <div class="forecast-container">
+            <div class="forecast-card">
+                <div class="date">Jueves 04:</div>
+                <div class="weather-icon">🌤️</div>
+                <div class="temperature">24°C / 5°C</div>
+                <div class="description">Cielo con nubes dispersas a cielo nublado por la tarde con tendencia a tormenta y chubasco.</div>
+            </div>
+            
+            <div class="forecast-card">
+                <div class="date">Viernes 05:</div>
+                <div class="weather-icon">⛅</div>
+                <div class="temperature">24°C / 4°C</div>
+                <div class="description">Cielo despejado variando a cielo con nubes dispersas por la tarde.</div>
+            </div>
+            
+            <div class="forecast-card">
+                <div class="date">Saabdo 06:</div>
+                <div class="weather-icon">☀️</div>
+                <div class="temperature">25°C / 4°C</div>
+                <div class="description">Cielo despejado variando a cielo con nubes dispersas por la tarde.</div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
